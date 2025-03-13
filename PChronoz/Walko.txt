@@ -1,0 +1,3 @@
+1|D/D|Go Divine Zero King Rage|Oscuridad|10|Demonio|Efecto|Péndulo|-|0|0|
+2|Reso|Red Supernova Dragon|Oscuridad|12|Dragón|Efecto|Sincronía|-|4000|3000|
+3|Galaxy|Number C62: Neo Galaxy-Eyes Prime Photon Dragon|Oscuridad|8|Dragón|Efecto|Xyz|-|4000|3000|

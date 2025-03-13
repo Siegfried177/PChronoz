@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="PChronoz.Views.SettingsBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PChronoz.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Column="1" Margin="20" Style="{StaticResource EscapeButton}" Command="{Binding ChangeViewCommand}" CommandParameter="Main" Visibility="{Binding MainViewSettingsBarVisibility}">
+            <Image/>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Image Source="C:\Library\Icons\home.png"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button Grid.Column="2" Margin="20" Style="{StaticResource EscapeButton}" Command="{Binding ChangeViewCommand}" CommandParameter="Shop" Visibility="{Binding ShopVisibility}">
+            <Image/>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Image Source="C:\Library\Icons\store.png"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <ComboBox Grid.Column="4" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ItemContainerStyle="{StaticResource ItemsListStyle}" Style="{StaticResource ComboBoxStyle}" Visibility="{Binding MainViewSettingsBarVisibility}"/>
+    </Grid>
+</UserControl>

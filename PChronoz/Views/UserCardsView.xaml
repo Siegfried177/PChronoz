@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="PChronoz.Views.UserCardsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:ei="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PChronoz.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox Grid.RowSpan="2" FontSize="20" VerticalAlignment="Center" Margin="35,0,10,0" Text="{Binding SearchBarText, Mode=TwoWay}"/>
+            <Button Grid.RowSpan="2" Content="Buscar" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,20,0" Style="{StaticResource FilterButton}" Command="{Binding SearchCommand}"/>
+            <Button Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource FilterButton}" VerticalAlignment="Center" Content="Quitar filtro" Width="200" Command="{Binding FilterOffCommand}"/>
+
+            <Button Grid.Column="2" Grid.Row="0" Style="{StaticResource FilterButton}" Content="Tipo" Command="{Binding FilterCommand}" CommandParameter="Type1"/>
+            <Button Grid.Column="3" Grid.Row="0" Style="{StaticResource FilterButton}" Content="Nivel / Rango / Link" Command="{Binding FilterCommand}" CommandParameter="Level"/>
+            <Button Grid.Column="3" Grid.Row="1" Style="{StaticResource FilterButton}" Content="Tipo de Invocación" Command="{Binding FilterCommand}" CommandParameter="Type3"/>
+            <Button Grid.Column="2" Grid.Row="1" Style="{StaticResource FilterButton}" Content="Atributo" Command="{Binding FilterCommand}" CommandParameter="Atribute"/>
+            <Button Grid.Column="2" Grid.Row="2" Style="{StaticResource FilterButton}" Content="ATK" Command="{Binding FilterCommand}" CommandParameter="Atk"/>
+            <Button Grid.Column="3" Grid.Row="2" Style="{StaticResource FilterButton}" Content="DEF" Command="{Binding FilterCommand}" CommandParameter="Def"/>
+        </Grid>
+
+        <ListBox Grid.Row="1" Background="Transparent" ItemsSource="{Binding UserCards}" ItemContainerStyle="{StaticResource ItemsListStyle}" SelectedItem="{Binding SelectedCard}" BorderThickness="0" Margin="30,10,0,10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding IconImage}" Margin="2" Width="30"/>
+                        <TextBlock Text="{Binding Name}" Margin="2"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Column="1" Margin="25,0,0,0" Grid.RowSpan="2">
+            <Image Source="{Binding CardImage}" MaxHeight="500"/>
+            <TextBlock Foreground="White" Text="{Binding SelectedCard.Name}" FontWeight="Bold" Margin="-10,5,0,5" FontSize="28" TextWrapping="Wrap"/>
+            
+            <TextBlock Foreground="White" FontSize="22" >
+                <Run Text="Arquetipo: " FontWeight="Bold"/>
+                <Run Text="{Binding SelectedCard.Arquetype}" FontStyle="Italic"/>
+            </TextBlock>
+            
+            <TextBlock FontSize="18" Foreground="White">
+                <Run Text="{Binding SelectedCardLevel}" FontWeight="Bold"/>
+                <Run Text="{Binding SelectedCard.Level}"/>
+                <Run Text=" Atributo: " FontWeight="Bold"/>
+                <Run Text="{Binding SelectedCard.Atribute}"/>
+            </TextBlock>
+            
+            <TextBlock FontSize="18" Foreground="White">
+                <Run Text="{Binding SelectedCard.Type1}"/>
+                <Run Text=" / " FontWeight="Bold"/>
+                <Run Text="{Binding SelectedCard.Type2}"/>       
+                <Run Text=" / " FontWeight="Bold"/>
+                <Run Text="{Binding SelectedCard.Type3}"/>       
+                <Run Text=" / " FontWeight="Bold"/>
+                <Run Text="{Binding SelectedCard.Type4}"/>
+            </TextBlock>
+            
+            <TextBlock FontSize="18" Foreground="White">
+                <Run Text="{Binding SelectedCard.Atk}"/>
+                <Run Text=" / " FontWeight="Bold"/>
+                <Run Text="{Binding SelectedCard.Def}"/>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>
