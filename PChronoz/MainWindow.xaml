@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PChronoz"
-        xmlns:menutopbar="clr-namespace:PChronoz.Views"
         xmlns:settingsbar="clr-namespace:PChronoz.Views"
         mc:Ignorable="d"
         Title="Yu-Gi-Oh Chronoz" Height="400" Width="450"

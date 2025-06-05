@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="PChronoz.Views.CraftingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PChronoz.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.ColumnSpan="2" Text="Area de Crafteo" Style="{StaticResource TextBlockStyle}" FontSize="42" TextDecorations="Underline"/>
+
+        <ComboBox Grid.Row="1" Grid.ColumnSpan="2" SelectedItem="{Binding SelectedSet}" ItemsSource="{Binding Sets}" Style="{StaticResource ComboBoxStyle}" Width="200"/>
+
+        <Image Grid.Row="2" Source="{Binding CraftSelectedImage}" Height="500"/>
+
+        <ComboBox Grid.Row="2" Grid.Column="1"  SelectedItem="{Binding CraftSelectedCard}" ItemsSource="{Binding SetCards}" Style="{StaticResource ComboBoxStyle}" Width="200" Height="60" />
+    </Grid>
+</UserControl>

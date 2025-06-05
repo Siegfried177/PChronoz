@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -58,14 +59,44 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\ImagePathConverter.cs" />
+    <Compile Include="Helpers\PasswordBoxHelper.cs" />
     <Compile Include="Models\Card.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="RelayCommand\RelayCommand.cs" />
     <Compile Include="ViewModels\ViewModelControl.cs" />
-    <Compile Include="Views\FilterWindow.xaml.cs">
-      <DependentUpon>FilterWindow.xaml</DependentUpon>
+    <Compile Include="Views\BuyPacksShopView.xaml.cs">
+      <DependentUpon>BuyPacksShopView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CardInfo.xaml.cs">
+      <DependentUpon>CardInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CardsPool.xaml.cs">
+      <DependentUpon>CardsPool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CraftingView.xaml.cs">
+      <DependentUpon>CraftingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Deck.xaml.cs">
+      <DependentUpon>Deck.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ExchangeView.xaml.cs">
+      <DependentUpon>ExchangeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ExtraDeck.xaml.cs">
+      <DependentUpon>ExtraDeck.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NumberInputWindow.xaml.cs">
+      <DependentUpon>NumberInputWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Search&amp;Filters.xaml.cs">
+      <DependentUpon>Search&amp;Filters.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsBar.xaml.cs">
       <DependentUpon>SettingsBar.xaml</DependentUpon>
@@ -73,14 +104,17 @@
     <Compile Include="Views\ShopView.xaml.cs">
       <DependentUpon>ShopView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\StartView.xaml.cs">
+      <DependentUpon>StartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\sad.xaml.cs">
+      <DependentUpon>sad.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserCardsView.xaml.cs">
       <DependentUpon>UserCardsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserDataView.xaml.cs">
       <DependentUpon>UserDataView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TopBar.xaml.cs">
-      <DependentUpon>TopBar.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -94,11 +128,47 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\FilterWindow.xaml">
+    <Page Include="Views\BuyPacksShopView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CardInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CardsPool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CraftingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Deck.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ExchangeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ExtraDeck.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NumberInputWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Search&amp;Filters.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,15 +180,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\StartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\sad.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\UserCardsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserDataView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\TopBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -150,15 +224,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Avatars\Siegfried.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Avatars\Walko.png" />
-    <Resource Include="Images\Cards\1.png" />
-    <Resource Include="Images\Cards\2.png" />
-    <Resource Include="Images\Cards\3.png" />
-    <Resource Include="Images\Logo.png" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

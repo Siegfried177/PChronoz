@@ -6,39 +6,57 @@
              xmlns:local="clr-namespace:PChronoz.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
 
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*" MaxWidth="700"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Grid.Row="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock Text="{Binding SelectedUser}" FontSize="42" TextDecorations="Underline" HorizontalAlignment="Center" Margin="0,95,0,0" Style="{StaticResource TextBlockStyle}" Height="Auto"/>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+            <TextBlock Margin="0,60,0,0" Grid.Row="2" FontSize="28" Style="{StaticResource TextBlockStyle}">
+                <Run Text="Duel Points: "/>
+                <Run Text="{Binding SelectedUserDP}"/>
+            </TextBlock>
 
-            <TextBlock Text="{Binding SelectedUser}" Margin="0,100,0,0" Grid.Row="0" Style="{StaticResource TextBlockStyle}"/>
+            <TextBlock Foreground="LightGreen" Margin="0,30,0,0" Grid.Row="2" FontSize="28" Style="{StaticResource TextBlockStyle}">
+                <Run Text="Victorias: "/>
+                <Run Text="{Binding SelectedUserWins}"/>
+            </TextBlock>
 
-            <TextBlock Text="{Binding SelectedUserWins}" Foreground="LightGreen" Margin="0,50,0,0" Grid.Row="1" Style="{StaticResource TextBlockStyle}"/>
+            <TextBlock Foreground="Crimson" Margin="0,30,0,0" Grid.Row="3" FontSize="28" Style="{StaticResource TextBlockStyle}">
+                <Run Text="Derrotas: "/>
+                <Run Text="{Binding SelectedUserLoses}"/>
+            </TextBlock>
+
+            <Button Content="Inventario" Width="Auto" Grid.Row="4" HorizontalContentAlignment="Center" Style="{StaticResource ControlButton}" Margin="0,30,0,0" Command="{Binding ChangeViewCommand}" CommandParameter="Cards"/>
             
-            <TextBlock Text="{Binding SelectedUserLoses}" Foreground="Crimson" Margin="0,50,0,0" Grid.Row="2" Style="{StaticResource TextBlockStyle}"/>
+            <StackPanel Orientation="Horizontal" Margin="0,50,0,0" Grid.Row="1" HorizontalAlignment="Center">
+                <TextBlock Style="{StaticResource TextBlockStyle}" FontSize="20" Margin="0,0,60,0">
+                    <Run Text="Common: " Foreground="Aquamarine"/>
+                    <Run Text="{Binding SelectedUserC}"/>
+                </TextBlock>
 
-            <Button Content="Cartas" Grid.Row="3" Style="{StaticResource ControlButton}" Margin="0,30,0,0" Command="{Binding ChangeViewCommand}" CommandParameter="Cards"/>
-        </Grid>
+                <TextBlock Style="{StaticResource TextBlockStyle}" FontSize="20" Margin="0,0,60,0">
+                    <Run Text="Rare: " Foreground="Aquamarine"/>
+                    <Run Text="{Binding SelectedUserR}"/>
+                </TextBlock>
 
-        <Border BorderBrush="White" BorderThickness="3" Margin="20,50,100,0" Grid.Row="0" Grid.Column="1">
+                <TextBlock Style="{StaticResource TextBlockStyle}" FontSize="20" Margin="0,0,60,0">
+                    <Run Text="Super Rare: " Foreground="Aquamarine"/>
+                    <Run Text="{Binding SelectedUserSR}"/>
+                </TextBlock>
+
+                <TextBlock Style="{StaticResource TextBlockStyle}" FontSize="20">
+                    <Run Text="Ultra Rare: " Foreground="Aquamarine"/>
+                    <Run Text="{Binding SelectedUserUR}"/>
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
+
+        <Border BorderBrush="White" BorderThickness="3" Margin="20,50,100,120" Grid.Column="1">
             <Image Source="{Binding ProfilePhoto}" Margin="15" MaxHeight="750"/>
         </Border>
     </Grid>

@@ -16,13 +16,15 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Image Source="C:\Users\yamiy\OneDrive\Escritorio\Proyectos\4 -- C#\PChronoz\PChronoz\Images\Logo.png" Height="250"/>
+        <Image Source="{Binding LogoImage}" Grid.Column="1" Height="250" Margin="0,30,0,30"/>
 
-        <TextBlock Grid.Row="1" Text="Duelistas" Style="{StaticResource TextBlockStyle}" Margin="0,30,0,0" FontSize="42" FontWeight="Normal" TextDecorations="Underline"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Duelistas" Style="{StaticResource TextBlockStyle}" Margin="0,30,0,0" FontSize="42" FontWeight="Normal" TextDecorations="Underline"/>
         
-        <ListBox Grid.Row="2" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser, Mode=TwoWay}" ItemContainerStyle="{StaticResource UsersItemStyle}" Style="{StaticResource UsersListStyle}">
+        <ListBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser, Mode=TwoWay}" ItemContainerStyle="{StaticResource UsersItemStyle}" Style="{StaticResource UsersListStyle}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding}" Style="{StaticResource ControlButton}" Background="Transparent" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Command="{Binding DataContext.ChangeViewCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding}" Padding="10" Width="200"/>

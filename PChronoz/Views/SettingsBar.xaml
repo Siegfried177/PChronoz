@@ -6,13 +6,14 @@
              xmlns:local="clr-namespace:PChronoz.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
-    <Grid>
+
+    <Grid Visibility="{Binding SettingsBarVisibility}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
@@ -24,7 +25,7 @@
             <Image/>
             <Button.Template>
                 <ControlTemplate TargetType="Button">
-                    <Image Source="C:\Library\Icons\home.png"/>
+                    <Image Source="{Binding HomeImage}"/>
                 </ControlTemplate>
             </Button.Template>
         </Button>
@@ -33,11 +34,20 @@
             <Image/>
             <Button.Template>
                 <ControlTemplate TargetType="Button">
-                    <Image Source="C:\Library\Icons\store.png"/>
+                    <Image Source="{Binding ShopImage}"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        
+        <Button Grid.Column="3" Margin="5" Width="80" Height="80" Style="{StaticResource EscapeButton}" Command="{Binding OpenEDOProCommand}">
+            <Image/>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Image Source="{Binding EDOPROImage}" Stretch="Uniform"/>
                 </ControlTemplate>
             </Button.Template>
         </Button>
 
-        <ComboBox Grid.Column="4" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ItemContainerStyle="{StaticResource ItemsListStyle}" Style="{StaticResource ComboBoxStyle}" Visibility="{Binding MainViewSettingsBarVisibility}"/>
+        <ComboBox Grid.Column="5" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ItemContainerStyle="{StaticResource ItemsListStyle}" Style="{StaticResource ComboBoxStyle}" Visibility="{Binding DuelistsVisibility}"/>
     </Grid>
 </UserControl>

@@ -6,20 +6,23 @@
              xmlns:local="clr-namespace:PChronoz.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+    <StackPanel>
+
+        <Image Source="{Binding LogoImage}" Height="250" Margin="0,30,0,30"/>
         
-        <TextBlock Text="Yu-Gi-Oh Chronoz" Style="{StaticResource TextBlockStyle}" Margin="0,65,0,0" FontSize="44"/>
+        <TextBlock Text="Tienda" Style="{StaticResource TextBlockStyle}" Margin="0,30,0,0" FontSize="42" FontWeight="Normal" TextDecorations="Underline"/>
 
-        <TextBlock Grid.Row="1" Text="Tienda" Style="{StaticResource TextBlockStyle}" Margin="0,80,0,0" FontSize="38" FontWeight="Normal" TextDecorations="Underline"/>
-    </Grid>
+        <StackPanel Margin="0,100,0,0" Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+            <Image Source="{Binding ShopImage}" Height="50" HorizontalAlignment="Center" Width="Auto" Margin="130,0,100,0"/>
+            <Image Source="{Binding ExchangeImage}" Height="50" HorizontalAlignment="Center" Width="Auto" Margin="120,0,160,0"/>
+            <Image Source="{Binding CraftingImage}" Height="50" HorizontalAlignment="Center" Width="Auto" Margin="100,0,170,0"/>
+        </StackPanel>
+
+        <StackPanel Margin="0" Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+            <Button HorizontalAlignment="Center" Content="Comprar Sobres" Style="{StaticResource ControlButton}" Width="Auto" Command="{Binding ChangeViewCommand}" CommandParameter="BuyPacks" Margin="40"/>
+            <Button HorizontalAlignment="Center" Content="Intercambiar" Style="{StaticResource ControlButton}" Width="Auto" Command="{Binding ChangeViewCommand}" CommandParameter="Exchange" Margin="40"/>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Fragmentar / Craftear" Style="{StaticResource ControlButton}" Width="Auto" Command="{Binding ChangeViewCommand}" CommandParameter="Crafting" Margin="40"/>
+        </StackPanel>
+    </StackPanel>
 </UserControl>
